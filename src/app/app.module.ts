@@ -2,14 +2,23 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { LandingComponent } from './landing/landing.component';
+import {RouterModule, Routes} from '@angular/router';
+
+const routes: Routes = [
+  {path: '', redirectTo: '/landing', pathMatch: 'full'},
+  {path: 'landing', component: LandingComponent},
+];
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    LandingComponent
   ],
-  imports: [
-    BrowserModule
-  ],
+    imports: [
+        BrowserModule,
+      [RouterModule.forRoot(routes)]
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
